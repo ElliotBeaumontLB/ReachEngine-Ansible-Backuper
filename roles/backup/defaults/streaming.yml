@@ -1,0 +1,8 @@
+---
+# Files to backup for streaming service
+streaming_files:
+  - "/etc/httpd/conf.d/httpstream.conf"
+  - "/etc/firewalld/services/http.xml"
+  - "/usr/lib/systemd/system/httpd.service"
+  - "/etc/sysconfig/httpd"
+  - "/etc/systemd/system/httpd.service.conf/httpdsvc.conf"

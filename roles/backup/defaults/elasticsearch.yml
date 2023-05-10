@@ -1,0 +1,6 @@
+---
+# Files to backup for Elasticsearch service
+elasticsearch_files:
+  - "/etc/sysconfig/elasticsearch"
+  - "/etc/elasticsearch/elasticsearch.yml"
+  - "/usr/lib/systemd/system/elasticsearch.service"

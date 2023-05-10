@@ -1,0 +1,7 @@
+---
+# Files to backup for scheduler service
+scheduler_files:
+  - "/reachengine/wfscheduler/config/application.yml"
+  - "/reachengine/wfscheduler/config/log4j.properties"
+  - "/etc/reachengine/wfescheduler.conf"
+  - "/etc/systemd/system/wfescheduler.service"

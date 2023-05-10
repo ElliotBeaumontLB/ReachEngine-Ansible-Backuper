@@ -1,0 +1,12 @@
+---
+- name: Backup files
+  include_tasks: backup.yml
+  loop:
+    - { hosts_group: 'nginx', files: '{{ nginx_files }}' }
+    - { hosts_group: 'elasticsearch', files: '{{ elasticsearch_files }}' }
+    - { hosts_group: 'streaming', files: '{{ streaming_files }}' }
+    - { hosts_group: 'webapp', files: '{{ webapp_files }}' }
+    - { hosts_group: 'scheduler', files: '{{ scheduler_files }}' }
+    - { hosts_group: 'runtime', files: '{{ runtime_files }}' }
+  loop_control:
+    loop_var: backup

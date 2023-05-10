@@ -1,0 +1,11 @@
+---
+# Default files to backup for all hosts
+default_files:
+  - "/etc/fstab"
+  - "/etc/firewalld/firewalld.conf"
+  - "/etc/firewalld/zones/reach.xml"
+  - "/etc/hosts"
+  - "/etc/selinux/config"
+  - "/etc/sysctl.conf"
+  - "/etc/sysconfig/iptables"
+  - "/etc/yum.repos.d/reachengine.repo"

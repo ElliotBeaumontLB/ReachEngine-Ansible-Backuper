@@ -1,0 +1,13 @@
+---
+# Files to backup for webapp service
+webapp_files:
+  - "/reachengine/tomcat/conf/server.xml"
+  - "/reachengine/tomcat/conf/Catalina/localhost/ROOT.xml"
+  - "/reachengine/tomcat/lib/license.lic"
+  - "/reachengine/tomcat/lib/localContext.xml"
+  - "/reachengine/tomcat/lib/local.reach-engine.properties"
+  - "/reachengine/tomcat/lib/log4j.properties"
+  - "/reachengine/tomcat/lib/onelogin.saml.properties"
+  - "/reachengine/tomcat/lib/queueContext.xml"
+  - "/etc/reachengine/reachengine.conf"
+  - "/etc/systemd/system/reachengine.service"

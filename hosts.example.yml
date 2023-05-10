@@ -1,0 +1,35 @@
+all:
+    vars:
+        ansible_user: centos
+        ansible_connection: ssh
+        ansible_ssh_user: centos
+        ansible_ssh_pass: password
+    children:
+        reachengine_environment:
+            children:
+                elasticsearch:
+                    hosts:
+                        10.0.0.1:
+                            elasticsearch_data_dir: /mnt/data/elasticsearch/  # Host specific variable for ES data dir, unused here
+
+                nginx:
+                    hosts:
+                        10.0.0.2:
+
+                runtime:
+                    hosts:
+                        10.0.0.3:
+
+                        10.0.0.4:
+
+                scheduler:
+                    hosts:
+                        10.0.0.5:
+
+                webapp:
+                    hosts:
+                        10.0.0.6:
+
+                streaming:
+                    hosts:
+                        10.0.0.6:

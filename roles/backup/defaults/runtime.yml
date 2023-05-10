@@ -1,0 +1,12 @@
+---
+# Files to backup for runtime services
+runtime_files:
+  - /reachengine/wfruntime/conf/jetty-config.xml"
+  - /reachengine/wfruntime/conf/license.lic"
+  - /reachengine/wfruntime/conf/local-applicationContext.xml"
+  - /reachengine/wfruntime/conf/local.wferuntime.properties"
+  - /reachengine/wfruntime/conf/log4j.properties"
+  - /reachengine/wfruntime/conf/mime-types.properties"
+  - /reachengine/wfruntime/conf/queueContext.xml"
+  - /etc/reachengine/wferuntime.conf"
+  - /etc/systemd/system/wferuntime.service"

@@ -1,0 +1,8 @@
+---
+# Files to backup for nginx service
+nginx_files:
+  - "/etc/nginx/static-routes.conf"
+  - "/etc/nginx/security.conf"
+  - "/etc/nginx/nginx.conf"
+  - "/etc/nginx/conf.d/default.conf"
+  - "/usr/lib/systemd/system/nginx.service"
