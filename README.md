@@ -20,13 +20,13 @@ For a specific service:\
 To override a variable when running ansible:\
 `ansible-playbook -i hosts.yml -e @extra_vars.yml -e "backup_to_local=false" backup-playbook.yml`\
 \
-\
+
 ## Default Values
 #### backup_to_local
 Default: `backup_to_local: true`\
 Setting `backup_to_local` to true means the files are backed up on the device running the ansible-playbook command (recommended Bastion).\
 Setting this to false will copy the files to back up into the configured directory on the remote hosts.\
-\
+
 #### backup_directory
 Default: `backup_directory: "/home/reachengine/"`\
 This sets the backup destination directory for both local and remote locations.\
