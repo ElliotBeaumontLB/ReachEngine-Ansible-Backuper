@@ -19,7 +19,6 @@ For a specific service:\
 \
 To override a variable when running ansible:\
 `ansible-playbook -i hosts.yml -e @extra_vars.yml -e "backup_to_local=false" backup-playbook.yml`\
-\
 
 ## Default Values
 #### backup_to_local
