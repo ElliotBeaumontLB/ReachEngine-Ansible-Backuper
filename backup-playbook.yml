@@ -1,4 +1,11 @@
 ---
 - hosts: all
+  gather_facts: False
+
+  vars:
+    backup_to_local: true
+    backup_directory: "/home/centos/"
+    create_tar: false
+
   roles:
     - backup

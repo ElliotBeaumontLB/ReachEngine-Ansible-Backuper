@@ -7,5 +7,4 @@ default_files:
   - "/etc/hosts"
   - "/etc/selinux/config"
   - "/etc/sysctl.conf"
-  - "/etc/sysconfig/iptables"
   - "/etc/yum.repos.d/reachengine.repo"

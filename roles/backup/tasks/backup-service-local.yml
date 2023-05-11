@@ -1,0 +1,15 @@
+---
+- name: Load variable file for current service {{ service }}
+  include_vars: "{{ role_path }}/defaults/{{ service }}.yml"
+
+- name: Backup files to local
+  fetch:
+    src: "{{ file }}"
+    dest: "{{ backup_directory }}/backups_{{ backup_time }}/{{ service }}/{{ inventory_hostname }}/{{ file | regex_replace('^/', '') | regex_replace('/', '_') }}.backup"
+    flat: yes
+  become: yes
+  loop: "{{ default_files + vars[service + '_files'] }}"
+  loop_control:
+    loop_var: file
+  ignore_errors: true
+  when: backup_to_local

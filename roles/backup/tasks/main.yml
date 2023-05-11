@@ -1,12 +1,50 @@
 ---
-- name: Backup files
-  include_tasks: backup.yml
+- name: Get current date and time
+  set_fact:
+    backup_time: "{{ lookup('pipe', 'date +%Y-%m-%d-%Hh%Mm') }}"
+  run_once: true
+
+- name: Ensure backup directory exists
+  file:
+    path: "{{ backup_directory }}"
+    state: directory
+  become: yes
+  when: not backup_to_local
+
+- name: Include tasks for each service
+  include_tasks: backup-service-local.yml
+  vars:
+    service: "{{ item }}"
   loop:
-    - { hosts_group: 'nginx', files: '{{ nginx_files }}' }
-    - { hosts_group: 'elasticsearch', files: '{{ elasticsearch_files }}' }
-    - { hosts_group: 'streaming', files: '{{ streaming_files }}' }
-    - { hosts_group: 'webapp', files: '{{ webapp_files }}' }
-    - { hosts_group: 'scheduler', files: '{{ scheduler_files }}' }
-    - { hosts_group: 'runtime', files: '{{ runtime_files }}' }
+    - nginx
+    - elasticsearch
+    - streaming
+    - webapp
+    - scheduler
+    - runtime
   loop_control:
-    loop_var: backup
+    loop_var: item
+  when: backup_to_local and (item in group_names)
+
+- name: Include tasks for each service
+  include_tasks: backup-service-remote.yml
+  vars:
+    service: "{{ item }}"
+  loop:
+    - nginx
+    - elasticsearch
+    - streaming
+    - webapp
+    - scheduler
+    - runtime
+  loop_control:
+    loop_var: item
+  when: not backup_to_local and (item in group_names)
+
+- name: Archive the backup directory
+  command:
+    cmd: tar -czf {{ backup_directory }}backups_{{ backup_time }}.tar.gz -C {{ backup_directory }} backups_{{ backup_time }}
+    warn: false
+  delegate_to: localhost
+  run_once: true
+  when: create_tar and backup_to_local
